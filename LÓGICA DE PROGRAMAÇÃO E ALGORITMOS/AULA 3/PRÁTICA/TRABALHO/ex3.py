@@ -9,7 +9,7 @@ def volumeFeijoada():
                 v = qtd * 0.08
                 return v
         except ValueError:
-            print('Digite um valor válido. ')
+            print('Digite um valor numérico. ')
 
 
 def opcaoFeijoada():
@@ -34,35 +34,31 @@ def opcaoFeijoada():
             escolha = input().upper()
 
 
-def acompanhamentoFeijoada():
+def acompanhamentoFeijoada(total=0):
     valorAc = 0
+
     print('0- Não desejo mais acompanhamentos (encerrar pedido)'
           '\n1- 200g de arroz'
           '\n2- 150g de farofa especial'
           '\n3- 100g de couve cozida'
           '\n4- 1 laranja descascada')
     opc = int(input(''))
-
-    while opc != 0:
-        print('0- Não desejo mais acompanhamentos (encerrar pedido)'
-              '\n1- 200g de arroz'
-              '\n2- 150g de farofa especial'
-              '\n3- 100g de couve cozida'
-              '\n4- 1 laranja descascada')
-        opc = int(input(''))
-        if opc == 1:
-            total = valorAc + 5
-        elif opc == 2:
-            total = valorAc + 6
-        elif opc == 3:
-            total = valorAc + 7
-        elif opc == 4:
-            total = valorAc + 3
+    if opc == 0:
+        print('Obrigado')
+    elif opc == 1:
+        total = valorAc + 5
+        return total
+    elif opc == 2:
+        total = valorAc + 6
+    elif opc == 3:
+        total = valorAc + 7
+    elif opc == 4:
+        total = valorAc + 4
+        print('150g de farofa foram adicionados! ')
         return total
 
-
 # print('BEM VINDO A FEIJOADA DE KAUÃ MACHADO!!')
-# print('MENU: ')
+print('MENU: ')
 # volumeFeijoada()
 # opcaoFeijoada()
 acompanhamentoFeijoada()

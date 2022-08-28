@@ -31,6 +31,30 @@ if existeArquivos(arquivo):
 else:
     print('Arquivo inexistente. ')
     criaArquivo(arquivo)
+
+
+def cadastrarJogo(nomeArquivo, nomeJogo, nomeVideoGame):
+    try:
+        a = open(nomeArquivo, 'at')
+    except:
+        print('Erro ao abrir o arquivo! ')
+    else:
+        a.write(f'{nomeJogo}; {nomeVideoGame}\n')
+    finally:
+        a.close()
+
+
+def listarArquivo(nomeArquivo):
+    try:
+        a = open(nomeArquivo, 'rt')
+    except:
+        print('Erro ao listar arquivos')
+    else:
+        print(a.read())
+    finally:
+        a.close()
+
+
 while True:
     print('1 - CADASTRAR NOVO ITEM'
           '\n2 - LISTAR TODOS OS ITENS '
@@ -39,9 +63,14 @@ while True:
     esc = valida('Digite a opção desejada:', 1, 3)
 
     if esc == 1:
-        print('Opçãod de cadastrar novo item.')
+        print('CADASTRO: ')
+        nomeJogo = input('Nome do jogo: ')
+        nomeVideoGame = input('Nome do video game: ')
+        cadastrarJogo(arquivo, nomeJogo, nomeVideoGame)
+
     elif esc == 2:
-        print('Opção de listar os itens')
+        print('CADASTRADOS')
+        listarArquivo(arquivo)
     else:
         print('Goodbye')
         break
